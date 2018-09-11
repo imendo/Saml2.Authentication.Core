@@ -5,7 +5,7 @@ using dk.nita.saml20.Bindings;
 using dk.nita.saml20.Schema.Protocol;
 using dk.nita.saml20.Utils;
 
-namespace Saml2.Authentication.Core.Bindings
+namespace Imendo.Saml2.Bindings
 {
     /// <summary>
     ///     Parses the response messages related to the artifact binding.

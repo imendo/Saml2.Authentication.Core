@@ -4,9 +4,9 @@ using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Authentication.Internal;
 using Microsoft.AspNetCore.DataProtection;
 using Microsoft.AspNetCore.Http;
-using Saml2.Authentication.Core.Authentication;
+using Imendo.Saml2.Authentication;
 
-namespace Saml2.Authentication.Core.Options
+namespace Imendo.Saml2.Options
 {
     public class Saml2Options : AuthenticationSchemeOptions
     {

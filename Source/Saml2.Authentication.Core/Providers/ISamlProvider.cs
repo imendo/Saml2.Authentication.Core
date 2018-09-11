@@ -4,7 +4,7 @@ using System.Text;
 using System.Xml;
 using dk.nita.saml20.Schema.Protocol;
 
-namespace Saml2.Authentication.Core.Providers
+namespace Imendo.Saml2.Providers
 {
     public interface ISamlProvider
     {

@@ -1,7 +1,7 @@
 ﻿using System.Security.Cryptography;
 using System.Xml;
 
-namespace Saml2.Authentication.Core.Validation
+namespace Imendo.Saml2.Validation
 {
     public interface ISaml2Validator
     {

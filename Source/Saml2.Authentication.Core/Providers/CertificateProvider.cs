@@ -1,6 +1,6 @@
 ﻿using System.Security.Cryptography.X509Certificates;
 
-namespace Saml2.Authentication.Core.Providers
+namespace Imendo.Saml2.Providers
 {
     internal class CertificateProvider : ICertificateProvider
     {

@@ -1,5 +1,6 @@
 ﻿using System;
 using System.IO;
+using System.IO.Compression;
 using System.Security.Cryptography;
 using System.Text;
 using System.Xml;
@@ -7,9 +8,9 @@ using dk.nita.saml20;
 using dk.nita.saml20.Schema.Core;
 using dk.nita.saml20.Schema.Protocol;
 using dk.nita.saml20.Utils;
-using Saml2.Authentication.Core.Bindings;
+using Imendo.Saml2.Bindings;
 
-namespace Saml2.Authentication.Core.Providers
+namespace Imendo.Saml2.Providers
 {
     internal class SamlProvider : ISamlProvider
     {
@@ -20,8 +21,11 @@ namespace Saml2.Authentication.Core.Providers
                 XmlResolver = null,
                 PreserveWhitespace = true
             };
-            var samlResponse = encoding.GetString(Convert.FromBase64String(base64SamlResponse));
-            doc.LoadXml(samlResponse);
+            //var samlResponse = encoding.GetString(Convert.FromBase64String(base64SamlResponse));
+            MemoryStream memStream = new MemoryStream(Convert.FromBase64String(base64SamlResponse));
+            DeflateStream deflate = new DeflateStream(memStream, CompressionMode.Decompress);
+            string xml = new StreamReader(deflate, System.Text.Encoding.UTF8).ReadToEnd();
+            doc.LoadXml(xml);
             return doc;
         }
 

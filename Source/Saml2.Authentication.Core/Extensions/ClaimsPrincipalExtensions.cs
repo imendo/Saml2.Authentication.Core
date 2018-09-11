@@ -1,8 +1,8 @@
 ﻿using System.Linq;
 using System.Security.Claims;
-using Saml2.Authentication.Core.Authentication;
+using Imendo.Saml2.Authentication;
 
-namespace Saml2.Authentication.Core.Extensions
+namespace Imendo.Saml2.Extensions
 {
     public static class ClaimsPrincipalExtensions
     {

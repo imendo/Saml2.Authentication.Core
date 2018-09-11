@@ -6,7 +6,7 @@ using dk.nita.saml20.Schema.Core;
 using dk.nita.saml20.Schema.Protocol;
 using dk.nita.saml20.Utils;
 
-namespace Saml2.Authentication.Core
+namespace Imendo.Saml2
 {
     /// <summary>
     ///     Encapsulates a SAML 2.0 authentication request

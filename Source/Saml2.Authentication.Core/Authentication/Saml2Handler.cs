@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Runtime.InteropServices.ComTypes;
 using System.Security.Claims;
 using System.Security.Cryptography;
 using System.Text;
@@ -6,16 +7,18 @@ using System.Text.Encodings.Web;
 using System.Threading.Tasks;
 using dk.nita.saml20;
 using Microsoft.AspNetCore.Authentication;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Http.Extensions;
 using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Options;
-using Saml2.Authentication.Core.Bindings;
-using Saml2.Authentication.Core.Extensions;
-using Saml2.Authentication.Core.Factories;
-using Saml2.Authentication.Core.Options;
-using Saml2.Authentication.Core.Services;
+using Imendo.Saml2.Bindings;
+using Imendo.Saml2.Extensions;
+using Imendo.Saml2.Factories;
+using Imendo.Saml2.Options;
+using Imendo.Saml2.Services;
 
-namespace Saml2.Authentication.Core.Authentication
+
+namespace Imendo.Saml2.Authentication
 {
     public class Saml2Handler : AuthenticationHandler<Saml2Options>, IAuthenticationRequestHandler,
         IAuthenticationSignOutHandler
@@ -73,6 +76,7 @@ namespace Saml2.Authentication.Core.Authentication
                 $"Method={nameof(SignOutAsync)}. Redirecting to saml identity provider for SLO. Url={logoutRequestUrl}");
 
             Context.Response.Redirect(logoutRequestUrl, true);
+            Context.Response.StatusCode = 200;
             return Task.CompletedTask;
         }
 
@@ -80,7 +84,6 @@ namespace Saml2.Authentication.Core.Authentication
         {
             return Task.FromResult(AuthenticateResult.Fail("Not supported"));
         }
-
 
         protected override Task HandleChallengeAsync(AuthenticationProperties properties)
         {
@@ -91,17 +94,31 @@ namespace Saml2.Authentication.Core.Authentication
             var deleteCookieOptions = Options.RequestIdCookie.Build(Context, Clock.UtcNow);
             Response.DeleteAllRequestIdCookies(Context.Request, deleteCookieOptions);
 
+            var isPassive = false;
+            var forceAuth = false;
+            foreach (var item in properties.Items)
+            {
+                if (item.Key == "IsPassive")
+                {
+                    isPassive = item.Value == "true";
+                }
+                if (item.Key == "ForceAuth")
+                {
+                    forceAuth = item.Value == "true";
+                }
+            }
+            
             var cookieOptions = Options.RequestIdCookie.Build(Context, Clock.UtcNow);
-            Response.Cookies.Append(Options.RequestIdCookie.Name, Options.StringDataFormat.Protect(authnRequestId),
-                cookieOptions);
+            Response.Cookies.Append(Options.RequestIdCookie.Name, Options.StringDataFormat.Protect(authnRequestId), cookieOptions);
 
             var relayState = Options.StateDataFormat.Protect(properties);
             var requestUrl = _samlService.GetAuthnRequest(authnRequestId, relayState,
-                $"{Request.GetBaseUrl()}/{Options.AssertionConsumerServiceUrl}");
+                $"{Request.GetBaseUrl()}/{Options.AssertionConsumerServiceUrl}" , isPassive, forceAuth);
 
             _logger.LogDebug(
                 $"Method={nameof(HandleChallengeAsync)}. Redirecting to saml identity provider for SSO. Url={requestUrl}");
             Context.Response.Redirect(requestUrl, true);
+            Context.Response.StatusCode = 200;
             return Task.CompletedTask;
         }
 
@@ -117,6 +134,7 @@ namespace Saml2.Authentication.Core.Authentication
 
             var uri = new Uri(Context.Request.GetEncodedUrl());
             if (_httpRedirectBinding.IsLogoutRequest(Context.Request)
+            
             ) //idp initiated logout. TODO: BUG:Context.User and cookies are not populated
             {
                 var logoutReponse = _samlService.GetLogoutReponse(uri);
@@ -168,21 +186,54 @@ namespace Saml2.Authentication.Core.Authentication
             var initialAuthnRequestId = GetRequestId();
             var result = _httpRedirectBinding.GetResponse(Context.Request);
             var base64EncodedSamlResponse = result.Response;
-            var assertion = _samlService.HandleHttpRedirectResponse(base64EncodedSamlResponse, initialAuthnRequestId);
+            try
+            {
+                var assertion =
+                    _samlService.HandleHttpRedirectResponse(base64EncodedSamlResponse, initialAuthnRequestId);
 
-            var authenticationProperties =
-                Options.StateDataFormat.Unprotect(result.RelayState) ?? new AuthenticationProperties();
-            await SignIn(assertion, authenticationProperties);
+                var authenticationProperties =
+                    Options.StateDataFormat.Unprotect(result.RelayState) ?? new AuthenticationProperties();
+                await SignIn(assertion, authenticationProperties);
 
-            var cookieOptions = Options.RequestIdCookie.Build(Context, Clock.UtcNow);
-            Response.DeleteAllRequestIdCookies(Context.Request, cookieOptions);
+                var cookieOptions = Options.RequestIdCookie.Build(Context, Clock.UtcNow);
+                Response.DeleteAllRequestIdCookies(Context.Request, cookieOptions);
 
-            var redirectUrl = GetRedirectUrl(authenticationProperties);
+                var redirectUrl = GetRedirectUrl(authenticationProperties);
 
-            _logger.LogDebug(
-                $"Method={nameof(HandleSignIn)}. Received and handled SSO redirect response. Redirecting to {redirectUrl}");
+                var isPassive = false;
+                foreach (var item in authenticationProperties.Items)
+                {
+                    if (item.Key == "IsPassive")
+                    {
+                        isPassive = item.Value == "true";
+                    }
+                }
+                
+                _logger.LogDebug(
+                    $"Method={nameof(HandleSignIn)}. Received and handled SSO redirect response. Redirecting to {redirectUrl}");
 
-            Context.Response.Redirect(redirectUrl, true);
+                if (isPassive)
+                {
+                    
+                    Context.Response.Redirect(redirectUrl+"?passive=true", true);
+                }
+                else
+                {
+                    Context.Response.Redirect(redirectUrl, true);
+                }
+            }
+            catch (Saml2Exception e)
+            {
+                if (e.Message.Contains("NoPassive"))
+                {
+                    var authenticationProperties =
+                        Options.StateDataFormat.Unprotect(result.RelayState) ?? new AuthenticationProperties();
+                    var redirectUrl = GetRedirectUrl(authenticationProperties) + "?passive=false";
+                    Context.Response.Redirect(redirectUrl, true);
+                    return true;
+                }
+            }
+
             return true;
         }
 

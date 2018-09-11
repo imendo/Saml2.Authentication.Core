@@ -2,7 +2,7 @@
 using dk.nita.saml20;
 using dk.nita.saml20.Bindings.SignatureProviders;
 
-namespace Saml2.Authentication.Core.Bindings.SignatureProviders
+namespace Imendo.Saml2.Bindings.SignatureProviders
 {
     internal class RsaSha512SignatureProvider : ISignatureProvider
     {

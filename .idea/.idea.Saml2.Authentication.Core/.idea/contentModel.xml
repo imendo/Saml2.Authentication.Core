@@ -1,0 +1,227 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ContentModelStore">
+    <e p="C:\Users\tarek\.Rider2018.1\system\resharper-host\local\Transient\ReSharperHost\v12\SolutionCaches\_Saml2.Authentication.Core.2114907863.00" t="ExcludeRecursive" />
+    <e p="C:\Users\tarek\Projects\imendoSAML\Saml2.Authentication.Core" t="IncludeFlat">
+      <e p="packages" t="ExcludeRecursive" />
+      <e p="Saml2.Authentication.Core.sln" t="IncludeFlat" />
+      <e p="Source\Saml2.Authentication.Core" t="IncludeRecursive">
+        <e p="Authentication" t="Include">
+          <e p="Saml2ClaimTypes.cs" t="Include" />
+          <e p="Saml2Defaults.cs" t="Include" />
+          <e p="Saml2Extensions.cs" t="Include" />
+          <e p="Saml2Handler.cs" t="Include" />
+          <e p="Saml2ServiceCollectionExtensions.cs" t="Include" />
+        </e>
+        <e p="bin" t="ExcludeRecursive" />
+        <e p="Bindings" t="Include">
+          <e p="HttpArtifactBinding.cs" t="Include" />
+          <e p="HttpArtifactBindingConstants.cs" t="Include" />
+          <e p="HttpArtifactBindingParser.cs" t="Include" />
+          <e p="HttpRedirectBinding.cs" t="Include" />
+          <e p="HttpRedirectBindingConstants.cs" t="Include" />
+          <e p="HttpRedirectBindingParser.cs" t="Include" />
+          <e p="HttpSoapBinding.cs" t="Include" />
+          <e p="HttpSoapBindingParser.cs" t="Include" />
+          <e p="IHttpArtifactBinding.cs" t="Include" />
+          <e p="IHttpRedirectBinding.cs" t="Include" />
+          <e p="Saml2LogoutResponse.cs" t="Include" />
+          <e p="Saml2Response.cs" t="Include" />
+          <e p="SignatureProviders" t="Include">
+            <e p="DsaSha1SignatureProvider.cs" t="Include" />
+            <e p="ISignatureProvider.cs" t="Include" />
+            <e p="ISignatureProviderFactory.cs" t="Include" />
+            <e p="RsaSha1SignatureProvider.cs" t="Include" />
+            <e p="RsaSha256SignatureProvider.cs" t="Include" />
+            <e p="RsaSha512SignatureProvider.cs" t="Include" />
+            <e p="ShaHashingAlgorithm.cs" t="Include" />
+            <e p="SignatureProviderFactory.cs" t="Include" />
+          </e>
+          <e p="SoapConstants.cs" t="Include" />
+        </e>
+        <e p="Extensions" t="Include">
+          <e p="ClaimsPrincipalExtensions.cs" t="Include" />
+          <e p="HttpRequestExtensions.cs" t="Include" />
+          <e p="HttpResponseExtensions.cs" t="Include" />
+          <e p="Saml2StringBuilderExtensions.cs" t="Include" />
+          <e p="Saml2StringExtensions.cs" t="Include" />
+        </e>
+        <e p="Factories" t="Include">
+          <e p="ISaml2ClaimFactory.cs" t="Include" />
+          <e p="ISaml2MessageFactory.cs" t="Include" />
+          <e p="Saml2ClaimFactory.cs" t="Include" />
+          <e p="Saml2MessageFactory.cs" t="Include" />
+        </e>
+        <e p="Imendo.Saml2.csproj" t="IncludeRecursive" />
+        <e p="obj" t="ExcludeRecursive">
+          <e p="Debug" t="Include">
+            <e p="netcoreapp2.0" t="Include">
+              <e p="Imendo.Saml2.AssemblyInfo.cs" t="Include" />
+            </e>
+          </e>
+        </e>
+        <e p="Options" t="Include">
+          <e p="IdentityProviderConfiguration.cs" t="Include" />
+          <e p="Saml2Configuration.cs" t="Include" />
+          <e p="Saml2Options.cs" t="Include" />
+          <e p="Saml2PostConfigureOptions.cs" t="Include" />
+          <e p="ServiceProviderConfiguration.cs" t="Include" />
+        </e>
+        <e p="Properties" t="Include">
+          <e p="AssemblyInfo.cs" t="Include" />
+        </e>
+        <e p="Providers" t="Include">
+          <e p="CertificateProvider.cs" t="Include" />
+          <e p="ICertificateProvider.cs" t="Include" />
+          <e p="ISamlProvider.cs" t="Include" />
+          <e p="SamlProvider.cs" t="Include" />
+        </e>
+        <e p="Saml2ArtifactResolve.cs" t="Include" />
+        <e p="Saml2ArtifactResponse.cs" t="Include" />
+        <e p="Saml2Assertion.cs" t="Include" />
+        <e p="Saml2AuthnRequest.cs" t="Include" />
+        <e p="Saml2Constants.cs" t="Include" />
+        <e p="Saml2EncryptedAssertion.cs" t="Include" />
+        <e p="Saml2Exception.cs" t="Include" />
+        <e p="Saml2FormatException.cs" t="Include" />
+        <e p="Saml2LogoutRequest.cs" t="Include" />
+        <e p="Saml2LogoutResponse.cs" t="Include" />
+        <e p="Schema" t="Include">
+          <e p="Core" t="Include">
+            <e p="Action.cs" t="Include" />
+            <e p="Advice.cs" t="Include" />
+            <e p="Assertion.cs" t="Include" />
+            <e p="AttributeStatement.cs" t="Include" />
+            <e p="AudienceRestriction.cs" t="Include" />
+            <e p="AuthnContext.cs" t="Include" />
+            <e p="AuthnStatement.cs" t="Include" />
+            <e p="AuthzDecisionStatement.cs" t="Include" />
+            <e p="BaseIDAbstract.cs" t="Include" />
+            <e p="ConditionAbstract.cs" t="Include" />
+            <e p="Conditions.cs" t="Include" />
+            <e p="Enums.cs" t="Include" />
+            <e p="Evidence.cs" t="Include" />
+            <e p="KeyInfoConfirmationData.cs" t="Include" />
+            <e p="NameID.cs" t="Include" />
+            <e p="OneTimeUse.cs" t="Include" />
+            <e p="ProxyRestriction.cs" t="Include" />
+            <e p="SamlAttribute.cs" t="Include" />
+            <e p="StatementAbstract.cs" t="Include" />
+            <e p="Subject.cs" t="Include" />
+            <e p="SubjectConfirmation.cs" t="Include" />
+            <e p="SubjectConfirmationData.cs" t="Include" />
+            <e p="SubjectLocality.cs" t="Include" />
+          </e>
+          <e p="Metadata" t="Include">
+            <e p="Enums.cs" t="Include" />
+            <e p="KeyDescriptor.cs" t="Include" />
+            <e p="RequestedAttribute.cs" t="Include" />
+          </e>
+          <e p="Protocol" t="Include">
+            <e p="ArtifactResolve.cs" t="Include" />
+            <e p="ArtifactResponse.cs" t="Include" />
+            <e p="AssertionIDRequest.cs" t="Include" />
+            <e p="AttributeQuery.cs" t="Include" />
+            <e p="AuthnQuery.cs" t="Include" />
+            <e p="AuthnRequest.cs" t="Include" />
+            <e p="AuthzDecisionQuery.cs" t="Include" />
+            <e p="EncryptedAssertion.cs" t="Include" />
+            <e p="EncryptedElement.cs" t="Include" />
+            <e p="Enums.cs" t="Include" />
+            <e p="Extensions.cs" t="Include" />
+            <e p="IDPEntry.cs" t="Include" />
+            <e p="IDPList.cs" t="Include" />
+            <e p="LogoutRequest.cs" t="Include" />
+            <e p="LogoutResponse.cs" t="Include" />
+            <e p="ManageNameIDRequest.cs" t="Include" />
+            <e p="NameIDMappingRequest.cs" t="Include" />
+            <e p="NameIDMappingResponse.cs" t="Include" />
+            <e p="NameIDPolicy.cs" t="Include" />
+            <e p="RequestAbstract.cs" t="Include" />
+            <e p="RequestedAuthnContext.cs" t="Include" />
+            <e p="Response.cs" t="Include" />
+            <e p="Scoping.cs" t="Include" />
+            <e p="Status.cs" t="Include" />
+            <e p="StatusCode.cs" t="Include" />
+            <e p="StatusDetail.cs" t="Include" />
+            <e p="StatusResponse.cs" t="Include" />
+            <e p="SubjectQueryAbstract.cs" t="Include" />
+            <e p="Terminate.cs" t="Include" />
+          </e>
+          <e p="XEnc" t="Include">
+            <e p="AgreementMethod.cs" t="Include" />
+            <e p="CipherData.cs" t="Include" />
+            <e p="CipherReference.cs" t="Include" />
+            <e p="Encrypted.cs" t="Include" />
+            <e p="EncryptedData.cs" t="Include" />
+            <e p="EncryptedKey.cs" t="Include" />
+            <e p="EncryptionMethod.cs" t="Include" />
+            <e p="EncryptionProperties.cs" t="Include" />
+            <e p="EncryptionProperty.cs" t="Include" />
+            <e p="Enums.cs" t="Include" />
+            <e p="ReferenceList.cs" t="Include" />
+            <e p="ReferenceType1.cs" t="Include" />
+            <e p="TransformsType1.cs" t="Include" />
+          </e>
+          <e p="XmlDSig" t="Include">
+            <e p="CanonicalizationMethod.cs" t="Include" />
+            <e p="DigestMethod.cs" t="Include" />
+            <e p="DSAKeyValue.cs" t="Include" />
+            <e p="Enums.cs" t="Include" />
+            <e p="KeyInfo.cs" t="Include" />
+            <e p="KeyValue.cs" t="Include" />
+            <e p="Manifest.cs" t="Include" />
+            <e p="ObjectType.cs" t="Include" />
+            <e p="PGPData.cs" t="Include" />
+            <e p="Reference.cs" t="Include" />
+            <e p="RetrievalMethod.cs" t="Include" />
+            <e p="RSAKeyValue.cs" t="Include" />
+            <e p="Signature.cs" t="Include" />
+            <e p="SignatureMethod.cs" t="Include" />
+            <e p="SignatureProperties.cs" t="Include" />
+            <e p="SignatureProperty.cs" t="Include" />
+            <e p="SignatureValue.cs" t="Include" />
+            <e p="SignedInfo.cs" t="Include" />
+            <e p="SPKIData.cs" t="Include" />
+            <e p="Transform.cs" t="Include" />
+            <e p="Transforms.cs" t="Include" />
+            <e p="X509Data.cs" t="Include" />
+            <e p="X509IssuerSerial.cs" t="Include" />
+          </e>
+        </e>
+        <e p="Services" t="Include">
+          <e p="ISamlService.cs" t="Include" />
+          <e p="SamlService.cs" t="Include" />
+        </e>
+        <e p="Utils" t="Include">
+          <e p="ArtifactUtil.cs" t="Include" />
+          <e p="Saml2Utils.cs" t="Include" />
+          <e p="Serialization.cs" t="Include" />
+          <e p="TimeRestrictionValidation.cs" t="Include" />
+          <e p="XmlSignatureUtils.cs" t="Include" />
+        </e>
+        <e p="Validation" t="Include">
+          <e p="ISaml2AssertionValidator.cs" t="Include" />
+          <e p="ISaml2AttributeValidator.cs" t="Include" />
+          <e p="ISaml2NameIDValidator.cs" t="Include" />
+          <e p="ISaml2StatementValidator.cs" t="Include" />
+          <e p="ISaml2SubjectConfirmationDataValidator.cs" t="Include" />
+          <e p="ISaml2SubjectConfirmationValidator.cs" t="Include" />
+          <e p="ISaml2SubjectValidator.cs" t="Include" />
+          <e p="ISaml2Validator.cs" t="Include" />
+          <e p="Saml2AssertionValidator.cs" t="Include" />
+          <e p="Saml2AttributeValidator.cs" t="Include" />
+          <e p="Saml2EncryptedElementValidator.cs" t="Include" />
+          <e p="Saml2KeyInfoValidator.cs" t="Include" />
+          <e p="Saml2NameIdValidator.cs" t="Include" />
+          <e p="Saml2StatementValidator.cs" t="Include" />
+          <e p="Saml2SubjectConfirmationDataValidator.cs" t="Include" />
+          <e p="Saml2SubjectConfirmationValidator.cs" t="Include" />
+          <e p="Saml2SubjectValidator.cs" t="Include" />
+          <e p="Saml2Validator.cs" t="Include" />
+          <e p="Saml2XmlAnyAttributeValidator.cs" t="Include" />
+        </e>
+      </e>
+    </e>
+  </component>
+</project>

@@ -1,7 +1,7 @@
 ﻿using System.Collections.Generic;
 using System.Security.Claims;
 
-namespace Saml2.Authentication.Core.Factories
+namespace Imendo.Saml2.Factories
 {
     public interface ISaml2ClaimFactory
     {

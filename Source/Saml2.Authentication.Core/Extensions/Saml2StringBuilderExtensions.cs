@@ -2,7 +2,7 @@
 using System.Text;
 using dk.nita.saml20.Bindings;
 
-namespace Saml2.Authentication.Core.Extensions
+namespace Imendo.Saml2.Extensions
 {
     public static class Saml2StringBuilderExtensions
     {

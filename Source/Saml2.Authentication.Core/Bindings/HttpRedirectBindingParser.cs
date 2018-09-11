@@ -4,7 +4,7 @@ using System.Text;
 using System.Web;
 using dk.nita.saml20.Schema.Protocol;
 using dk.nita.saml20.Utils;
-using Saml2.Authentication.Core.Extensions;
+using Imendo.Saml2.Extensions;
 using CONSTS = dk.nita.saml20.Bindings.HttpRedirectBindingConstants;
 
 namespace dk.nita.saml20.Bindings

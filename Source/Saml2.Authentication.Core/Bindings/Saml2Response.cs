@@ -1,4 +1,4 @@
-﻿namespace Saml2.Authentication.Core.Bindings
+﻿namespace Imendo.Saml2.Bindings
 {
     public class Saml2Response
     {

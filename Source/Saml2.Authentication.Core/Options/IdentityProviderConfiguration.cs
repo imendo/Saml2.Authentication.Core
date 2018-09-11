@@ -1,6 +1,6 @@
 ﻿using System.ComponentModel;
 
-namespace Saml2.Authentication.Core.Options
+namespace Imendo.Saml2.Options
 {
     public class IdentityProviderConfiguration
     {

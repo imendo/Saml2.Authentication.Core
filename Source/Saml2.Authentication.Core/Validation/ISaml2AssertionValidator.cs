@@ -1,7 +1,7 @@
 using System;
 using dk.nita.saml20.Schema.Core;
 
-namespace Saml2.Authentication.Core.Validation
+namespace Imendo.Saml2.Validation
 {
     internal interface ISaml2AssertionValidator
     {

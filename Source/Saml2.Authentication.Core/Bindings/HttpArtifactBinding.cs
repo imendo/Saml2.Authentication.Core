@@ -4,9 +4,9 @@ using System.Security.Cryptography.X509Certificates;
 using System.Xml;
 using dk.nita.saml20.Utils;
 using Microsoft.AspNetCore.Http;
-using Saml2.Authentication.Core.Extensions;
+using Imendo.Saml2.Extensions;
 
-namespace Saml2.Authentication.Core.Bindings
+namespace Imendo.Saml2.Bindings
 {
     /// <summary>
     ///     Implementation of the artifact over HTTP SOAP binding.

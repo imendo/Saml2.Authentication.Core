@@ -5,7 +5,7 @@ using dk.nita.saml20.Schema.Core;
 using dk.nita.saml20.Schema.Protocol;
 using dk.nita.saml20.Utils;
 
-namespace Saml2.Authentication.Core
+namespace Imendo.Saml2
 {
     /// <summary>
     ///     Encapsulates the ArtifactResolve schema class.

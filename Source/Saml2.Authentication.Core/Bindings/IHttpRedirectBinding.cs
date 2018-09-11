@@ -3,7 +3,7 @@ using System.Security.Cryptography;
 using dk.nita.saml20;
 using Microsoft.AspNetCore.Http;
 
-namespace Saml2.Authentication.Core.Bindings
+namespace Imendo.Saml2.Bindings
 {
     public interface IHttpRedirectBinding
     {

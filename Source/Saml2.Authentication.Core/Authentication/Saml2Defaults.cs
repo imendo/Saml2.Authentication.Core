@@ -1,4 +1,4 @@
-﻿namespace Saml2.Authentication.Core.Authentication
+﻿namespace Imendo.Saml2.Authentication
 {
     public class Saml2Defaults
     {

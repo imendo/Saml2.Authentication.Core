@@ -7,7 +7,7 @@ using System.Text;
 using System.Xml;
 using dk.nita.saml20.Bindings;
 
-namespace Saml2.Authentication.Core.Bindings
+namespace Imendo.Saml2.Bindings
 {
     /// <summary>
     ///     Implements the HTTP SOAP binding

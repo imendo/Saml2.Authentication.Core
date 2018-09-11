@@ -3,14 +3,14 @@ using System.IO;
 using System.Security.Cryptography.X509Certificates;
 using Microsoft.Extensions.DependencyInjection.Extensions;
 using Microsoft.Extensions.Options;
-using Saml2.Authentication.Core.Bindings;
-using Saml2.Authentication.Core.Bindings.SignatureProviders;
-using Saml2.Authentication.Core.Extensions;
-using Saml2.Authentication.Core.Factories;
-using Saml2.Authentication.Core.Options;
-using Saml2.Authentication.Core.Providers;
-using Saml2.Authentication.Core.Services;
-using Saml2.Authentication.Core.Validation;
+using Imendo.Saml2.Bindings;
+using Imendo.Saml2.Bindings.SignatureProviders;
+using Imendo.Saml2.Extensions;
+using Imendo.Saml2.Factories;
+using Imendo.Saml2.Options;
+using Imendo.Saml2.Providers;
+using Imendo.Saml2.Services;
+using Imendo.Saml2.Validation;
 
 namespace Microsoft.Extensions.DependencyInjection
 {

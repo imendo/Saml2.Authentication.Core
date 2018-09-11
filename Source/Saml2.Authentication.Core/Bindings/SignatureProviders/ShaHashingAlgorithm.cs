@@ -1,4 +1,4 @@
-﻿namespace Saml2.Authentication.Core.Bindings.SignatureProviders
+﻿namespace Imendo.Saml2.Bindings.SignatureProviders
 {
     /// <summary>
     /// Represents the possible SHA algorithms

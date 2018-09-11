@@ -1,8 +1,8 @@
-﻿namespace Saml2.Authentication.Core.Authentication
+﻿namespace Imendo.Saml2.Authentication
 {
     public static class Saml2ClaimTypes
     {
-        internal static string Namespace = "http://saml2.authentication.core/";
+        internal static string Namespace = "http://Imendo.Saml2/";
 
         public static string Subject = $"${Namespace}subject";
 

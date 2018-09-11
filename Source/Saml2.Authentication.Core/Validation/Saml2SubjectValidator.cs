@@ -4,7 +4,7 @@ using dk.nita.saml20.Schema.Core;
 using dk.nita.saml20.Schema.Protocol;
 using dk.nita.saml20.Validation;
 
-namespace Saml2.Authentication.Core.Validation
+namespace Imendo.Saml2.Validation
 {
     internal class Saml2SubjectValidator : ISaml2SubjectValidator
     {

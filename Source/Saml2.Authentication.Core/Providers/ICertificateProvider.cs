@@ -1,4 +1,4 @@
-﻿namespace Saml2.Authentication.Core.Providers
+﻿namespace Imendo.Saml2.Providers
 {
     public interface ICertificateProvider
     {

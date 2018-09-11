@@ -1,6 +1,6 @@
 ﻿using dk.nita.saml20.Schema.Protocol;
 
-namespace Saml2.Authentication.Core.Bindings
+namespace Imendo.Saml2.Bindings
 {
     public class Saml2LogoutResponse
     {

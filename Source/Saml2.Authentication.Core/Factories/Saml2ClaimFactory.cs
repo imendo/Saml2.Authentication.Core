@@ -1,10 +1,10 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
 using System.Security.Claims;
-using Saml2.Authentication.Core.Authentication;
-using Saml2.Authentication.Core.Extensions;
+using Imendo.Saml2.Authentication;
+using Imendo.Saml2.Extensions;
 
-namespace Saml2.Authentication.Core.Factories
+namespace Imendo.Saml2.Factories
 {
     internal class Saml2ClaimFactory : ISaml2ClaimFactory
     {

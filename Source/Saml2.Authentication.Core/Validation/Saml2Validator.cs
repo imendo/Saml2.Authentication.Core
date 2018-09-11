@@ -6,7 +6,7 @@ using dk.nita.saml20;
 using dk.nita.saml20.Schema.Protocol;
 using dk.nita.saml20.Utils;
 
-namespace Saml2.Authentication.Core.Validation
+namespace Imendo.Saml2.Validation
 {
     public class Saml2Validator : ISaml2Validator
     {
@@ -64,6 +64,13 @@ namespace Saml2.Authentication.Core.Validation
                     throw new Saml2Exception(
                         "IdP responded with statuscode NoPassive. A user cannot be signed in with the IsPassiveFlag set when the user does not have a session with the IdP.");
             }
+            
+            switch (status.StatusCode.SubStatusCode.Value)
+            {
+                case Saml2Constants.StatusCodes.NoPassive:
+                    throw new Saml2Exception(
+                        "IdP responded with statuscode NoPassive. A user cannot be signed in with the IsPassiveFlag set when the user does not have a session with the IdP.");
+            }
 
             throw new Saml2Exception($"Saml2 authentication failed. Status: {status.StatusCode.Value}");
 
@@ -76,6 +83,7 @@ namespace Saml2.Authentication.Core.Validation
             if (!omitAssertionSignatureCheck)
             {
                 //TODO: This is checked automaticaly if autovalidation is on
+                
                 if (!assertion.CheckSignature(keys))
                 {
                     throw new Saml2Exception("Invalid signature in assertion");

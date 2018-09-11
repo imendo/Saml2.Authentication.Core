@@ -5,10 +5,10 @@ using System.Web;
 using dk.nita.saml20;
 using dk.nita.saml20.Bindings;
 using Microsoft.AspNetCore.Http;
-using Saml2.Authentication.Core.Bindings.SignatureProviders;
-using Saml2.Authentication.Core.Extensions;
+using Imendo.Saml2.Bindings.SignatureProviders;
+using Imendo.Saml2.Extensions;
 
-namespace Saml2.Authentication.Core.Bindings
+namespace Imendo.Saml2.Bindings
 {
     /// <summary>
     ///     Handles the creation of redirect locations when using the HTTP redirect binding, which is outlined in [SAMLBind]

@@ -10,10 +10,10 @@ using dk.nita.saml20.Schema.Core;
 using dk.nita.saml20.Schema.Protocol;
 using dk.nita.saml20.Utils;
 using dk.nita.saml20.Validation;
-using Saml2.Authentication.Core.Validation;
+using Imendo.Saml2.Validation;
 using Signature = dk.nita.saml20.Schema.XmlDSig.Signature;
 
-namespace Saml2.Authentication.Core
+namespace Imendo.Saml2
 {
     /// <summary>
     ///     Encapsulates the functionality required of a DK-SAML 2.0 Assertion.
@@ -254,6 +254,7 @@ namespace Saml2.Authentication.Core
         private void LoadXml(XmlElement element, IEnumerable<AsymmetricAlgorithm> trustedSigners)
         {
             _samlAssertion = element;
+            
             if (trustedSigners != null)
                 if (!CheckSignature(trustedSigners))
                     throw new Saml2Exception("Assertion signature could not be verified.");

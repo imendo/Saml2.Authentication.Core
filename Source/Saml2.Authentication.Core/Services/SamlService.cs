@@ -3,14 +3,14 @@ using System.Text;
 using System.Xml;
 using dk.nita.saml20;
 using Microsoft.AspNetCore.Http;
-using Saml2.Authentication.Core.Bindings;
-using Saml2.Authentication.Core.Factories;
-using Saml2.Authentication.Core.Options;
-using Saml2.Authentication.Core.Providers;
-using Saml2.Authentication.Core.Validation;
-using Saml2LogoutResponse = Saml2.Authentication.Core.Bindings.Saml2LogoutResponse;
+using Imendo.Saml2.Bindings;
+using Imendo.Saml2.Factories;
+using Imendo.Saml2.Options;
+using Imendo.Saml2.Providers;
+using Imendo.Saml2.Validation;
+using Saml2LogoutResponse = Imendo.Saml2.Bindings.Saml2LogoutResponse;
 
-namespace Saml2.Authentication.Core.Services
+namespace Imendo.Saml2.Services
 {
     internal class SamlService : ISamlService
     {
@@ -44,12 +44,12 @@ namespace Saml2.Authentication.Core.Services
             _serviceProviderConfiguration = saml2Configuration.ServiceProviderConfiguration;
         }
 
-        public string GetAuthnRequest(string authnRequestId, string relayState, string assertionConsumerServiceUrl)
+        public string GetAuthnRequest(string authnRequestId, string relayState, string assertionConsumerServiceUrl, bool isPassive, bool forceAuth)
         {
             var signingCertificate = _certificateProvider.GetCertificate();
 
             var saml20AuthnRequest =
-                _saml2MessageFactory.CreateAuthnRequest(authnRequestId, assertionConsumerServiceUrl);
+                _saml2MessageFactory.CreateAuthnRequest(authnRequestId, assertionConsumerServiceUrl, isPassive, forceAuth);
             // check protocol binding if supporting more than HTTP-REDIRECT
             return _httpRedirectBinding.BuildAuthnRequestUrl(saml20AuthnRequest,
                 signingCertificate.ServiceProvider.PrivateKey,
@@ -110,7 +110,20 @@ namespace Saml2.Authentication.Core.Services
             var samlResponseDocument = _samlProvider.GetDecodedSamlResponse(base64EncodedSamlResponse, Encoding.UTF8);
             var samlResponseElement = samlResponseDocument.DocumentElement;
 
-            _saml2Validator.CheckReplayAttack(samlResponseElement, originalSamlRequestId);
+            var statusCodes = samlResponseElement.GetElementsByTagName("samlp:StatusCode");
+            var noPassive = false;
+            foreach (XmlElement statusCode in statusCodes)
+            {
+                if (statusCode.GetAttribute("Value").Contains("NoPassive"))
+                {
+                    noPassive = true;
+                }
+            }
+
+            if (!noPassive)
+            {
+                _saml2Validator.CheckReplayAttack(samlResponseElement, originalSamlRequestId);
+            }
 
             return !_saml2Validator.CheckStatus(samlResponseDocument)
                 ? null

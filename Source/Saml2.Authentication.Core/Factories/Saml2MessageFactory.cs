@@ -3,10 +3,10 @@ using System.Collections.Generic;
 using dk.nita.saml20;
 using dk.nita.saml20.Schema.Core;
 using dk.nita.saml20.Schema.Protocol;
-using Saml2.Authentication.Core.Extensions;
-using Saml2.Authentication.Core.Options;
+using Imendo.Saml2.Extensions;
+using Imendo.Saml2.Options;
 
-namespace Saml2.Authentication.Core.Factories
+namespace Imendo.Saml2.Factories
 {
     internal class Saml2MessageFactory : ISaml2MessageFactory
     {
@@ -21,14 +21,14 @@ namespace Saml2.Authentication.Core.Factories
             _identityProviderConfiguration = saml2Configuration.IdentityProviderConfiguration;
         }
 
-        public Saml2AuthnRequest CreateAuthnRequest(string authnRequestId, string assertionConsumerServiceUrl)
+        public Saml2AuthnRequest CreateAuthnRequest(string authnRequestId, string assertionConsumerServiceUrl, bool isPassive, bool forceAuth)
         {
             var request = new Saml2AuthnRequest
             {
                 ID = authnRequestId,
                 Issuer = _serviceProviderConfiguration.EntityId,
-                ForceAuthn = _saml2Configuration.ForceAuth,
-                IsPassive = _saml2Configuration.IsPassive,
+                ForceAuthn = forceAuth,
+                IsPassive = isPassive,
                 Destination = _identityProviderConfiguration.SingleSignOnService,
                 IssuerFormat = _identityProviderConfiguration.IssuerFormat,
                 IssueInstant = DateTime.UtcNow,

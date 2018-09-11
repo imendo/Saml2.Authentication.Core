@@ -2,9 +2,9 @@
 using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.DataProtection;
 using Microsoft.Extensions.Options;
-using Saml2.Authentication.Core.Authentication;
+using Imendo.Saml2.Authentication;
 
-namespace Saml2.Authentication.Core.Options
+namespace Imendo.Saml2.Options
 {
     public class Saml2PostConfigureOptions : IPostConfigureOptions<Saml2Options>
     {

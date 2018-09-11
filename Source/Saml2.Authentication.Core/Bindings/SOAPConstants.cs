@@ -1,4 +1,4 @@
-﻿namespace Saml2.Authentication.Core.Bindings
+﻿namespace Imendo.Saml2.Bindings
 {
     /// <summary>
     /// Constants related to the HTTP SOAP binding

@@ -2,8 +2,8 @@
 using Microsoft.AspNetCore.Authentication;
 using Microsoft.Extensions.DependencyInjection.Extensions;
 using Microsoft.Extensions.Options;
-using Saml2.Authentication.Core.Authentication;
-using Saml2.Authentication.Core.Options;
+using Imendo.Saml2.Authentication;
+using Imendo.Saml2.Options;
 
 namespace Microsoft.Extensions.DependencyInjection
 {

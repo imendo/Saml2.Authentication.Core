@@ -1,12 +1,12 @@
 ﻿using System;
 using Microsoft.AspNetCore.Http;
-using Saml2.Authentication.Core.Bindings;
+using Imendo.Saml2.Bindings;
 
-namespace Saml2.Authentication.Core.Services
+namespace Imendo.Saml2.Services
 {
     public interface ISamlService
     {
-        string GetAuthnRequest(string authnRequestId, string relayState, string assertionConsumerServiceUrl);
+        string GetAuthnRequest(string authnRequestId, string relayState, string assertionConsumerServiceUrl, bool isPassive, bool forceAuth);
 
         Saml2Assertion HandleHttpRedirectResponse(string base64EncodedSamlResponse, string originalSamlRequestId);
 

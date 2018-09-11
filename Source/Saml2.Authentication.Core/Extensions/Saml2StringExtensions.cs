@@ -4,7 +4,7 @@ using System.IO.Compression;
 using System.Text;
 using System.Web;
 
-namespace Saml2.Authentication.Core.Extensions
+namespace Imendo.Saml2.Extensions
 {
     public static class Saml2StringExtensions
     {

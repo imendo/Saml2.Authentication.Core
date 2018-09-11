@@ -2,7 +2,7 @@ using System;
 using System.Collections.Generic;
 using dk.nita.saml20.Schema.Core;
 using dk.nita.saml20.Utils;
-using Saml2.Authentication.Core.Validation;
+using Imendo.Saml2.Validation;
 
 namespace dk.nita.saml20.Validation
 {
